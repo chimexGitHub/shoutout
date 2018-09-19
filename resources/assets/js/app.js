@@ -15,6 +15,8 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.component('feed', require('./components/Feed.vue'));
+Vue.component('post', require('./components/Post.vue'));
 Vue.component('friend-component', require('./components/FriendComponent.vue'));
 Vue.component('notification', require('./components/Notification.vue'));
 Vue.component('unread', require('./components/UnreadNots.vue'));
