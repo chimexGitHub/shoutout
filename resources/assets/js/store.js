@@ -8,7 +8,9 @@ export const store = new Vuex.Store({
     state:{
 
         auth:false,
-        nots:[]
+        nots:[],
+        posts: [],
+        auth_user: {}
     },
 
     getters:{
@@ -17,12 +19,30 @@ export const store = new Vuex.Store({
         },
         all_nots_count(state){
             return state.nots.length
+        },
+        all_posts(state) {
+
+            return state.posts
+        },
+        auth_user_data(state, user) {
+            state.auth_user = user
+
         }
     },
 
     mutations:{
         add_not(state, not){
             state.nots.push(not)
+        },
+        add_post(state, post){
+            state.posts.push(post)
+        },
+        update_post_likes(state, payload) {
+            var post = state.posts.find((p) => {
+                return p.id === payload.id
+            })
+
+            post.likes.push(payload.like)
         }
     },
 

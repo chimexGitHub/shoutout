@@ -11,7 +11,7 @@
                 </div>
                 <div class="panel-body">
                  <center>
-                   <img src="{{ URL::asset($user->avatar) }}" alt="profile default img" style="height: 100px; width: 100px">
+                   <img src="{{ $user->avatar }}" alt="profile default img" style="height: 100px; width: 100px">
                    </center>
                    <br>
                    <p class="text-center">

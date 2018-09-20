@@ -22,6 +22,7 @@
 </head>
 <body>
     <div id="app">
+    <init></init>
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -76,9 +77,18 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
-
-            <Notification id="{{Auth::id()}}"></Notification>
+             @if(Auth::check())
+                <search></search>
+             @endif
+        @yield('content')
+            @if(Auth::check())
+                <notification :id="{{ Auth::id() }}"></notification>
+            @endif
+            <audio id="noty_audio">
+                <source src="{{ asset('audio/notify.mp3') }}">
+                <source src="{{ asset('audio/notify.ogg') }}">
+                <source src="{{ asset('audio/notify.wav') }}">
+            </audio>
         </main>
     </div>
 
