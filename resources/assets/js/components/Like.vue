@@ -87,6 +87,25 @@ export default {
                         text: 'Shout liked !'
                     })
             })
+        },
+
+        unlike() {
+            this.$http.get('/unlike/' + this.id)
+
+            .then((response) => {
+                this.$store.commit('unlike_post', {
+
+                    post_id: this.id,
+                    like_id: response.body
+                })
+
+                noty({
+                        type : success,
+                        layout: 'bottomLeft',
+                        text: 'Shout unliked !'
+                    })
+            })
+
         }
     }
 }

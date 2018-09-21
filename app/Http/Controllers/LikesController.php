@@ -32,9 +32,9 @@ class LikesController extends Controller
         Like::where('user_id', Auth::id())
 
             ->where('post_id', $post->id)
-            ->first()
-            ->delete();
+            ->first();
+            $like->delete();
 
-            return 1;
+            return $like->id;
     }
 }
